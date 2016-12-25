@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="subdomains_bruteforce">
+<meta property="og:url" content="https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/index.html">
+<meta property="og:site_name" content="Security Notes">
+<meta property="og:description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in">
+<meta property="og:updated_time" content="2016-12-25T21:56:53.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="subdomains_bruteforce">
+<meta name="twitter:description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>subdomains_bruteforce</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2016/12/20/test/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&text=subdomains_bruteforce"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&is_video=false&description=subdomains_bruteforce"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=subdomains_bruteforce&body=Check out this article: https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&name=subdomains_bruteforce&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-Subdomains"><span class="toc-number">1.</span> <span class="toc-text">Discovering Subdomains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.0.1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        subdomains_bruteforce
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Security Notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-12-25T21:05:51.000Z" itemprop="datePublished">2016-12-26</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Discovering-Subdomains"><a href="#Discovering-Subdomains" class="headerlink" title="Discovering Subdomains"></a>Discovering Subdomains</h2><p> During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced</p>
+<h4 id="Discovering-subdomains-in-public-directories"><a href="#Discovering-subdomains-in-public-directories" class="headerlink" title="Discovering subdomains in public directories"></a>Discovering subdomains in public directories</h4><ul>
+<li><a href="https://www.threatcrowd.org/" target="_blank" rel="external">Threatcrowd</a> - very powerful search engine for emails, subdomains, IPs, etc. Threatcrowd also has an API which returns result in JSON. This is very useful and can be automated or customized as you want.</li>
+</ul>
+<p>Example request for searching all subdomains of google.com:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* [Virustotal](https://www.virustotal.com/) - generally this resource is used for analyze of malicious files. But it also has search engine like `Threatcrowd` and `Shodan`. </div><div class="line"></div><div class="line">  ![1](./subdomains_discovery/1.png)</div><div class="line"></div><div class="line">* [DNSdumpster](https://dnsdumpster.com/)</div><div class="line"></div><div class="line">* [Certificate Search](crt.sh) - also can be used to find subdomains. That&apos;s how it works: `https://crt.sh/?q=%25spacex.com`  It is very important to insert `%` before domain.</div><div class="line"></div><div class="line">* [Shodan](https://www.shodan.io/)</div><div class="line"></div><div class="line">* [Censys](https://censys.io/) </div><div class="line"></div><div class="line">* [Netcraft](http://searchdns.netcraft.com/)</div><div class="line"></div><div class="line">* [WolframAlpha](https://www.wolframalpha.com/) </div><div class="line"></div><div class="line">![](subdomains_discovery/2.png)</div><div class="line"></div><div class="line">#### Bruteforcing subdomains</div><div class="line"></div><div class="line">* [SubBrute](https://github.com/TheRook/subbrute)</div><div class="line"></div><div class="line">```./subbrute.py spacex.com</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/rbsec/dnscan" target="_blank" rel="external">DNSscan</a> </li>
+</ul>
+<figure class="highlight plain"><figcaption><span>-d spacex.com -w subdomains-10000.txt```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* [TheHarvester](https://github.com/laramies/theHarvester)</div><div class="line"></div><div class="line">```theharvester -d spacex.com -b all</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://tools.kali.org/information-gathering/dnsrecon" target="_blank" rel="external">DNSrecon</a></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>-w -g -d spacex.com```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* [Fierce](http://tools.kali.org/information-gathering/fierce)</div><div class="line"></div><div class="line">```fierce -dns spacex.com</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/OJ/gobuster" target="_blank" rel="external">Gobuster</a></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>-m dns -w subdomains.txt -u spacex.com -i```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* [DNSenum](https://github.com/fwaeytens/dnsenum)</div><div class="line"></div><div class="line">``` dnsenum spacex.com -f /usr/share/wordlists/dnsmap.txt</div></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="https://github.com/infosec-au/altdns" target="_blank" rel="external">Altdns</a> //допилить</p>
+<p>//<a href="https://blog.bugcrowd.com/discovering-subdomains" target="_blank" rel="external">https://blog.bugcrowd.com/discovering-subdomains</a> - дописать про словари</p>
+</li>
+</ul>
+<p><a href="https://github.com/bitquark/dnspop" target="_blank" rel="external">https://github.com/bitquark/dnspop</a></p>
+<p><a href="https://github.com/guelfoweb/knock" target="_blank" rel="external">https://github.com/guelfoweb/knock</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-Subdomains"><span class="toc-number">1.</span> <span class="toc-text">Discovering Subdomains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.0.1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&text=subdomains_bruteforce"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&is_video=false&description=subdomains_bruteforce"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=subdomains_bruteforce&body=Check out this article: https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&title=subdomains_bruteforce"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/&name=subdomains_bruteforce&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Anton Ostrokonskiy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
