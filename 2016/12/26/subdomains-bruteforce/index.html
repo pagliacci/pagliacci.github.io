@@ -6,22 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
-Discovering subdomains in">
+    <meta name="description" content="During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in public directories
+Th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Discvering Subdomains">
 <meta property="og:url" content="https://pagliacci.github.io/2016/12/26/subdomains-bruteforce/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
-Discovering subdomains in">
-<meta property="og:image" content="https://pagliacci.github.io/./subdomains_discovery/1.png">
-<meta property="og:image" content="https://pagliacci.github.io/subdomains_discovery/2.png">
-<meta property="og:updated_time" content="2016-12-25T22:01:50.582Z">
+<meta property="og:description" content="During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in public directories
+Th">
+<meta property="og:image" content="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/1.png">
+<meta property="og:image" content="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/2.png">
+<meta property="og:updated_time" content="2016-12-25T22:06:15.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Discvering Subdomains">
-<meta name="twitter:description" content="Discovering Subdomains During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
-Discovering subdomains in">
-<meta name="twitter:image" content="https://pagliacci.github.io/./subdomains_discovery/1.png">
+<meta name="twitter:description" content="During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced
+Discovering subdomains in public directories
+Th">
+<meta name="twitter:image" content="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/1.png">
     
     
         
@@ -102,7 +105,7 @@ Discovering subdomains in">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-Subdomains"><span class="toc-number">1.</span> <span class="toc-text">Discovering Subdomains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.0.1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">1.0.2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -136,15 +139,15 @@ Discovering subdomains in">
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Discovering-Subdomains"><a href="#Discovering-Subdomains" class="headerlink" title="Discovering Subdomains"></a>Discovering Subdomains</h2><p> During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced</p>
-<h4 id="Discovering-subdomains-in-public-directories"><a href="#Discovering-subdomains-in-public-directories" class="headerlink" title="Discovering subdomains in public directories"></a>Discovering subdomains in public directories</h4><ul>
+    <p> During pentests it’s often needed to find all web applications of the target company. Subdomains can be found in public resources or can be bruteforced</p>
+<h2 id="Discovering-subdomains-in-public-directories"><a href="#Discovering-subdomains-in-public-directories" class="headerlink" title="Discovering subdomains in public directories"></a>Discovering subdomains in public directories</h2><ul>
 <li><a href="https://www.threatcrowd.org/" target="_blank" rel="external">Threatcrowd</a> - very powerful search engine for emails, subdomains, IPs, etc. Threatcrowd also has an API which returns result in JSON. This is very useful and can be automated or customized as you want.</li>
 </ul>
 <p>Example request for searching all subdomains of google.com:</p>
 <p><code>https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=google.com</code></p>
 <ul>
 <li><p><a href="https://www.virustotal.com/" target="_blank" rel="external">Virustotal</a> - generally this resource is used for analyze of malicious files. But it also has search engine like <code>Threatcrowd</code> and <code>Shodan</code>. </p>
-<p><img src="./subdomains_discovery/1.png" alt="1"></p>
+<p><img src="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/1.png" alt="1"></p>
 </li>
 <li><p><a href="https://dnsdumpster.com/" target="_blank" rel="external">DNSdumpster</a></p>
 </li>
@@ -159,8 +162,8 @@ Discovering subdomains in">
 <li><p><a href="https://www.wolframalpha.com/" target="_blank" rel="external">WolframAlpha</a> </p>
 </li>
 </ul>
-<p><img src="subdomains_discovery/2.png" alt=""></p>
-<h4 id="Bruteforcing-subdomains"><a href="#Bruteforcing-subdomains" class="headerlink" title="Bruteforcing subdomains"></a>Bruteforcing subdomains</h4><ul>
+<p><img src="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/2.png" alt=""></p>
+<h2 id="Bruteforcing-subdomains"><a href="#Bruteforcing-subdomains" class="headerlink" title="Bruteforcing subdomains"></a>Bruteforcing subdomains</h2><ul>
 <li><a href="https://github.com/TheRook/subbrute" target="_blank" rel="external">SubBrute</a></li>
 </ul>
 <p><code>./subbrute.py spacex.com</code></p>
@@ -217,7 +220,7 @@ Discovering subdomains in">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-Subdomains"><span class="toc-number">1.</span> <span class="toc-text">Discovering Subdomains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.0.1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">1.0.2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-directories"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public directories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
