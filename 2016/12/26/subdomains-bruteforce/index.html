@@ -18,7 +18,7 @@ Discovering subdomains in public resources
 Threatcro">
 <meta property="og:image" content="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/1.png">
 <meta property="og:image" content="https://ostrokonskiy.keybase.pub/blog/discovering%20subdomains/2.png">
-<meta property="og:updated_time" content="2016-12-25T22:10:36.816Z">
+<meta property="og:updated_time" content="2016-12-26T10:26:51.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Discovering Subdomains">
 <meta name="twitter:description" content="During pentests it’s often needed to find all subdomains of the target company. Subdomains can be found in public resources or can be bruteforced.
@@ -103,7 +103,7 @@ Threatcro">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-resources"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-resources"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wordlists-for-bruteforce"><span class="toc-number">3.</span> <span class="toc-text">Wordlists for bruteforce</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -190,12 +190,21 @@ Threatcro">
 </ul>
 <p><code>dnsenum spacex.com -f /usr/share/wordlists/dnsmap.txt</code></p>
 <ul>
-<li><p><a href="https://github.com/infosec-au/altdns" target="_blank" rel="external">Altdns</a> //допилить</p>
-<p>//<a href="https://blog.bugcrowd.com/discovering-subdomains" target="_blank" rel="external">https://blog.bugcrowd.com/discovering-subdomains</a> - дописать про словари</p>
-</li>
+<li><a href="https://github.com/infosec-au/altdns" target="_blank" rel="external">Altdns</a></li>
 </ul>
-<p><a href="https://github.com/bitquark/dnspop" target="_blank" rel="external">https://github.com/bitquark/dnspop</a></p>
-<p><a href="https://github.com/guelfoweb/knock" target="_blank" rel="external">https://github.com/guelfoweb/knock</a></p>
+<p><code>./altdns.py -i subdomains.txt -o data_output -w words.txt -r -s results_output.txt</code></p>
+<p>As this tool bruteforce subdomains using permutations of the known subdomains you must specify the known subdomains:</p>
+<p><code>-i subdomains.txt</code></p>
+<p><code>-r</code> - resolves each generated, permuted subdomain</p>
+<p><code>-s</code> - specify file which will contain the final list of permuted subdomains found that are valid and have a DNS record</p>
+<ul>
+<li><a href="https://github.com/guelfoweb/knock" target="_blank" rel="external">Knock</a> </li>
+</ul>
+<p><code>knockpy domain.com -w wordlist.txt</code></p>
+<h2 id="Wordlists-for-bruteforce"><a href="#Wordlists-for-bruteforce" class="headerlink" title="Wordlists for bruteforce"></a>Wordlists for bruteforce</h2><ul>
+<li><a href="https://github.com/bitquark/dnspop/tree/master/results" target="_blank" rel="external">Dnspop</a> - contains list of 1000, 10000, 100000 and 1000000 most common subdomains</li>
+<li><a href="https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS" target="_blank" rel="external">SecLists</a> - sorted_knock_dnsrecon_fierce_recon-ng.txt - recommended by bugcrowd discovering subdomains <a href="https://blog.bugcrowd.com/discovering-subdomains" target="_blank" rel="external">guide</a>.</li>
+</ul>
 
   </div>
 </article>
@@ -218,7 +227,7 @@ Threatcro">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-resources"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Discovering-subdomains-in-public-resources"><span class="toc-number">1.</span> <span class="toc-text">Discovering subdomains in public resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bruteforcing-subdomains"><span class="toc-number">2.</span> <span class="toc-text">Bruteforcing subdomains</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wordlists-for-bruteforce"><span class="toc-number">3.</span> <span class="toc-text">Wordlists for bruteforce</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
