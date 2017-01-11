@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Best way to discover networkAs ICMP ping can be blocked, we can also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask request">
+    <meta name="description" content="Best way to discover networkAs ICMP ping can be blocked, we should also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nmap Cheatsheet">
 <meta property="og:url" content="https://pagliacci.github.io/2017/01/11/nmap-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="Best way to discover networkAs ICMP ping can be blocked, we can also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask request">
-<meta property="og:updated_time" content="2017-01-11T13:52:07.026Z">
+<meta property="og:description" content="Best way to discover networkAs ICMP ping can be blocked, we should also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requ">
+<meta property="og:updated_time" content="2017-01-11T13:53:29.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nmap Cheatsheet">
-<meta name="twitter:description" content="Best way to discover networkAs ICMP ping can be blocked, we can also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask request">
+<meta name="twitter:description" content="Best way to discover networkAs ICMP ping can be blocked, we should also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requ">
     
     
         
@@ -130,7 +130,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Best-way-to-discover-network"><a href="#Best-way-to-discover-network" class="headerlink" title="Best way to discover network"></a>Best way to discover network</h2><p>As ICMP ping can be blocked, we can also check some aditional ports.<br>Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requests.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -PE -PP -PS80,443,22,21,23,113,135,139,445 -PA80,443,22,21,23,113,135,139,445 192.168.0.0/24 -v</div></pre></td></tr></table></figure></p>
+    <h2 id="Best-way-to-discover-network"><a href="#Best-way-to-discover-network" class="headerlink" title="Best way to discover network"></a>Best way to discover network</h2><p>As ICMP ping can be blocked, we should also check some aditional ports.<br>Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requests.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -PE -PP -PS80,443,22,21,23,113,135,139,445 -PA80,443,22,21,23,113,135,139,445 192.168.0.0/24 -v</div></pre></td></tr></table></figure></p>
 <h4 id="TCP-ping"><a href="#TCP-ping" class="headerlink" title="TCP ping:"></a>TCP ping:</h4><p><code>-PS</code> - TCP SYN Ping<br><code>-PA</code> - TCP ACK Ping</p>
 <h4 id="ICMP-ping-types"><a href="#ICMP-ping-types" class="headerlink" title="ICMP ping types:"></a>ICMP ping types:</h4><p><code>-PE</code> - Echo request<br><code>-PP</code> - Timestamp queries<br><code>-PM</code> - Address mask queries<br>You can also add <code>--source-port 53</code> as administrators may use rulset exceptions for DNS.</p>
 
