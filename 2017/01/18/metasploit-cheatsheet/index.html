@@ -8,23 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Metasploit Initialisation123service postgresql startmsfdb initmsfconsole
 To verify database connectivity:
-msf &amp;gt; db_status
-Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
+1msf &amp;gt; db_status
+Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Metasploit Cheatsheet">
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/01/18/metasploit-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
 <meta property="og:description" content="Metasploit Initialisation123service postgresql startmsfdb initmsfconsole
 To verify database connectivity:
-msf &amp;gt; db_status
-Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
-<meta property="og:updated_time" content="2017-01-18T16:50:21.503Z">
+1msf &amp;gt; db_status
+Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
+<meta property="og:updated_time" content="2017-01-19T15:36:43.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metasploit Cheatsheet">
 <meta name="twitter:description" content="Metasploit Initialisation123service postgresql startmsfdb initmsfconsole
 To verify database connectivity:
-msf &amp;gt; db_status
-Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
+1msf &amp;gt; db_status
+Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
     
     
         
@@ -105,7 +105,7 @@ Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metasploit-Initialisation"><span class="toc-number">1.</span> <span class="toc-text">Metasploit Initialisation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auxiliary-modules"><span class="toc-number"></span> <span class="toc-text">Auxiliary modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#To-discover-netbios-hostnames"><span class="toc-number">1.</span> <span class="toc-text">To discover netbios hostnames:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMB-enumeration"><span class="toc-number">2.</span> <span class="toc-text">SMB enumeration:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Post-modules"><span class="toc-number"></span> <span class="toc-text">Post modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Upgrade-to-meterpreter"><span class="toc-number">1.</span> <span class="toc-text">Upgrade to meterpreter</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metasploit-Initialisation"><span class="toc-number">1.</span> <span class="toc-text">Metasploit Initialisation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auxiliary-modules"><span class="toc-number"></span> <span class="toc-text">Auxiliary modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#To-discover-netbios-hostnames"><span class="toc-number">1.</span> <span class="toc-text">To discover netbios hostnames:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMB-enumeration"><span class="toc-number">2.</span> <span class="toc-text">SMB enumeration:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Post-modules"><span class="toc-number"></span> <span class="toc-text">Post modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Upgrade-to-meterpreter"><span class="toc-number">1.</span> <span class="toc-text">Upgrade to meterpreter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-custom-module"><span class="toc-number"></span> <span class="toc-text">Add custom module</span></a>
     </div>
   </span>
 </div>
@@ -141,13 +141,19 @@ Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
   <div class="content" itemprop="articleBody">
     <h3 id="Metasploit-Initialisation"><a href="#Metasploit-Initialisation" class="headerlink" title="Metasploit Initialisation"></a>Metasploit Initialisation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">service postgresql start</div><div class="line">msfdb init</div><div class="line">msfconsole</div></pre></td></tr></table></figure>
 <p>To verify database connectivity:</p>
-<p><code>msf &gt; db_status</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msf &gt; db_status</div></pre></td></tr></table></figure>
 <h2 id="Auxiliary-modules"><a href="#Auxiliary-modules" class="headerlink" title="Auxiliary modules"></a>Auxiliary modules</h2><h3 id="To-discover-netbios-hostnames"><a href="#To-discover-netbios-hostnames" class="headerlink" title="To discover netbios hostnames:"></a>To discover netbios hostnames:</h3><p><code>use auxiliary/scanner/netbios/nbname</code></p>
 <h3 id="SMB-enumeration"><a href="#SMB-enumeration" class="headerlink" title="SMB enumeration:"></a>SMB enumeration:</h3><p><code>use auxiliary/scanner/smb/smb_enumshares</code> - enumerates any SMB shares that are available on a remote system</p>
 <p><code>use auxiliary/scanner/smb/smb_enumusers</code> - connecting to each system via the SMB RPC and enumerate the users on the system</p>
 <p><code>use auxiliary/scanner/smb/smb_login</code> - attempt to login via SMB</p>
 <p><code>use auxiliary/scanner/smb/smb_version</code> - determines the version of the SMB service that is running</p>
 <h2 id="Post-modules"><a href="#Post-modules" class="headerlink" title="Post modules"></a>Post modules</h2><h3 id="Upgrade-to-meterpreter"><a href="#Upgrade-to-meterpreter" class="headerlink" title="Upgrade to meterpreter"></a>Upgrade to meterpreter</h3><p><code>use post/multi/manage/shell_to_meterpreter</code></p>
+<h2 id="Add-custom-module"><a href="#Add-custom-module" class="headerlink" title="Add custom module"></a>Add custom module</h2><p>Create folder for exploit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p $HOME/.msf4/modules/exploits/test</div></pre></td></tr></table></figure>
+<p>Place exploit in created folder.<br>After that open msfconsole and:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msf &gt; reload_all</div></pre></td></tr></table></figure>
+<p>To use recently added exploit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use exploit/test/*exploit_file*</div></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -176,7 +182,7 @@ Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbio">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metasploit-Initialisation"><span class="toc-number">1.</span> <span class="toc-text">Metasploit Initialisation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auxiliary-modules"><span class="toc-number"></span> <span class="toc-text">Auxiliary modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#To-discover-netbios-hostnames"><span class="toc-number">1.</span> <span class="toc-text">To discover netbios hostnames:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMB-enumeration"><span class="toc-number">2.</span> <span class="toc-text">SMB enumeration:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Post-modules"><span class="toc-number"></span> <span class="toc-text">Post modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Upgrade-to-meterpreter"><span class="toc-number">1.</span> <span class="toc-text">Upgrade to meterpreter</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metasploit-Initialisation"><span class="toc-number">1.</span> <span class="toc-text">Metasploit Initialisation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auxiliary-modules"><span class="toc-number"></span> <span class="toc-text">Auxiliary modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#To-discover-netbios-hostnames"><span class="toc-number">1.</span> <span class="toc-text">To discover netbios hostnames:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMB-enumeration"><span class="toc-number">2.</span> <span class="toc-text">SMB enumeration:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Post-modules"><span class="toc-number"></span> <span class="toc-text">Post modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Upgrade-to-meterpreter"><span class="toc-number">1.</span> <span class="toc-text">Upgrade to meterpreter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-custom-module"><span class="toc-number"></span> <span class="toc-text">Add custom module</span></a>
     </div>
 
     <div id="share-footer" style="display: none">
