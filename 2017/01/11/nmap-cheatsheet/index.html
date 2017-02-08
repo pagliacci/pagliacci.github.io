@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/01/11/nmap-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
 <meta property="og:description" content="Best way to discover networkAs ICMP ping can be blocked, we should also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requ">
-<meta property="og:updated_time" content="2017-02-08T12:26:34.812Z">
+<meta property="og:updated_time" content="2017-02-08T12:36:22.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nmap Cheatsheet">
 <meta name="twitter:description" content="Best way to discover networkAs ICMP ping can be blocked, we should also check some aditional ports.Also it is worth trying not only standart echo ICMP request, but also timestamp and address mask requ">
@@ -98,7 +98,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-way-to-discover-network"><span class="toc-number">1.</span> <span class="toc-text">Best way to discover network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-ping"><span class="toc-number">1.0.1.</span> <span class="toc-text">TCP ping:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP-ping-types"><span class="toc-number">1.0.2.</span> <span class="toc-text">ICMP ping types:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Scripting-Engine-NSE"><span class="toc-number">2.</span> <span class="toc-text">Nmap Scripting Engine (NSE)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-and-Version-detection"><span class="toc-number">3.</span> <span class="toc-text">Service and Version detection</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-way-to-discover-network"><span class="toc-number">1.</span> <span class="toc-text">Best way to discover network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-ping"><span class="toc-number">1.0.1.</span> <span class="toc-text">TCP ping:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP-ping-types"><span class="toc-number">1.0.2.</span> <span class="toc-text">ICMP ping types:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Scripting-Engine-NSE"><span class="toc-number">2.</span> <span class="toc-text">Nmap Scripting Engine (NSE)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-and-Version-detection"><span class="toc-number">3.</span> <span class="toc-text">Service and Version detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Vulnerability-Scan-with-NSE"><span class="toc-number">4.</span> <span class="toc-text">Nmap Vulnerability Scan with NSE</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -137,6 +137,7 @@
 <h4 id="ICMP-ping-types"><a href="#ICMP-ping-types" class="headerlink" title="ICMP ping types:"></a>ICMP ping types:</h4><p><code>-PE</code> - Echo request<br><code>-PP</code> - Timestamp queries<br><code>-PM</code> - Address mask queries<br>You can also add <code>--source-port 53</code> as administrators may use rulset exceptions for DNS.</p>
 <h2 id="Nmap-Scripting-Engine-NSE"><a href="#Nmap-Scripting-Engine-NSE" class="headerlink" title="Nmap Scripting Engine (NSE)"></a>Nmap Scripting Engine (NSE)</h2><p><code>-sC</code> - performs a script scan usinf the default set of scripts (equivalent to <code>`--script=default</code>)</p>
 <h2 id="Service-and-Version-detection"><a href="#Service-and-Version-detection" class="headerlink" title="Service and Version detection"></a>Service and Version detection</h2><p><code>-sV</code> - probe open ports to determine service/version info<br>You can set an intensity level from 0 (light) to 9 (try all probes):<br><code>--version-intensity 2</code> - try most likely probes (intensity 2)<br><code>--version-all</code> - try every probe (intensity 9)</p>
+<h2 id="Nmap-Vulnerability-Scan-with-NSE"><a href="#Nmap-Vulnerability-Scan-with-NSE" class="headerlink" title="Nmap Vulnerability Scan with NSE"></a>Nmap Vulnerability Scan with NSE</h2><p><code>nmap --script-args=unsafe=1 --script=vuln -p445 10.11.1.1</code> - check for vulnerabilities on port 445</p>
 
   </div>
 </article>
@@ -165,7 +166,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-way-to-discover-network"><span class="toc-number">1.</span> <span class="toc-text">Best way to discover network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-ping"><span class="toc-number">1.0.1.</span> <span class="toc-text">TCP ping:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP-ping-types"><span class="toc-number">1.0.2.</span> <span class="toc-text">ICMP ping types:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Scripting-Engine-NSE"><span class="toc-number">2.</span> <span class="toc-text">Nmap Scripting Engine (NSE)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-and-Version-detection"><span class="toc-number">3.</span> <span class="toc-text">Service and Version detection</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-way-to-discover-network"><span class="toc-number">1.</span> <span class="toc-text">Best way to discover network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-ping"><span class="toc-number">1.0.1.</span> <span class="toc-text">TCP ping:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ICMP-ping-types"><span class="toc-number">1.0.2.</span> <span class="toc-text">ICMP ping types:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Scripting-Engine-NSE"><span class="toc-number">2.</span> <span class="toc-text">Nmap Scripting Engine (NSE)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-and-Version-detection"><span class="toc-number">3.</span> <span class="toc-text">Service and Version detection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap-Vulnerability-Scan-with-NSE"><span class="toc-number">4.</span> <span class="toc-text">Nmap Vulnerability Scan with NSE</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
