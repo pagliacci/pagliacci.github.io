@@ -18,7 +18,9 @@ AccessCheckDownload AccessCheck123456789(( STAGE++ )); echo -e &amp;quot;\n\n $&
 <meta property="og:image" content="http://i.imgur.com/76ssTNl.png">
 <meta property="og:image" content="http://i.imgur.com/0MR38TZ.png">
 <meta property="og:image" content="http://i.imgur.com/jiMSNcm.png">
-<meta property="og:updated_time" content="2017-02-01T00:13:22.786Z">
+<meta property="og:image" content="http://i.imgur.com/KVan2Gm.png">
+<meta property="og:image" content="http://i.imgur.com/12Z4Mb1.png">
+<meta property="og:updated_time" content="2017-02-10T15:09:49.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows Privilege Escalation">
 <meta name="twitter:description" content="source
@@ -76,6 +78,8 @@ AccessCheckDownload AccessCheck123456789(( STAGE++ )); echo -e &amp;quot;\n\n $&
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2017/02/09/helpful-links/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
         
         <li><a class="icon" href="/2017/01/18/metasploit-cheatsheet/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
@@ -104,7 +108,7 @@ AccessCheckDownload AccessCheck123456789(( STAGE++ )); echo -e &amp;quot;\n\n $&
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-show-all-network-connections"><span class="toc-number">3.</span> <span class="toc-text">To show all network connections</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-show-all-network-connections"><span class="toc-number">3.</span> <span class="toc-text">To show all network connections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Whitespaces-in-directory-traversal-on-Windows-machine-T-T"><span class="toc-number">4.</span> <span class="toc-text">Whitespaces in directory traversal on Windows machine T_T</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -157,6 +161,11 @@ AccessCheckDownload AccessCheck123456789(( STAGE++ )); echo -e &amp;quot;\n\n $&
 <p><img src="http://i.imgur.com/jiMSNcm.png" alt="netstat"></p>
 <p>As unprivileged user can see only PID’s and not process full names (as on screenshot above), to show the process name:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tasklist | findstr /c:&quot;1768&quot;</div></pre></td></tr></table></figure>
+<h2 id="Whitespaces-in-directory-traversal-on-Windows-machine-T-T"><a href="#Whitespaces-in-directory-traversal-on-Windows-machine-T-T" class="headerlink" title="Whitespaces in directory traversal on Windows machine T_T"></a>Whitespaces in directory traversal on Windows machine T_T</h2><p>When trying to perform an directory traversal attack on Femitter FTP I was not able to list the directory content because of white spaces.</p>
+<p><img src="http://i.imgur.com/KVan2Gm.png" alt="dirtraversal"></p>
+<p>The solution is to use MS Windows directory short notation <code>C:\Docume~1\</code> for <code>C:\Documents and Settings</code>:</p>
+<p><img src="http://i.imgur.com/12Z4Mb1.png" alt="dirtraversal2"></p>
+<p>I love Windows syntax!<br>Joking</p>
 
   </div>
 </article>
@@ -185,7 +194,7 @@ AccessCheckDownload AccessCheck123456789(( STAGE++ )); echo -e &amp;quot;\n\n $&
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-show-all-network-connections"><span class="toc-number">3.</span> <span class="toc-text">To show all network connections</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AccessCheck"><span class="toc-number">1.</span> <span class="toc-text">AccessCheck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Download-AccessCheck"><span class="toc-number">1.1.</span> <span class="toc-text">Download AccessCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AccessCheck-usage-examples"><span class="toc-number">1.2.</span> <span class="toc-text">AccessCheck usage examples</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-output"><span class="toc-number">1.2.1.</span> <span class="toc-text">Example output:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-controller"><span class="toc-number">2.</span> <span class="toc-text">Service controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-output-1"><span class="toc-number">2.1.</span> <span class="toc-text">Example output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-show-all-network-connections"><span class="toc-number">3.</span> <span class="toc-text">To show all network connections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Whitespaces-in-directory-traversal-on-Windows-machine-T-T"><span class="toc-number">4.</span> <span class="toc-text">Whitespaces in directory traversal on Windows machine T_T</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
