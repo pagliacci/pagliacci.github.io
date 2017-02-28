@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Checking for Bad Characters12345678badchars = (&amp;quot;\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f&amp;quot;&amp;quot;\x20\x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="buffer-overflow-basics">
+<meta property="og:title" content="Buffer Overflow Basics">
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/index.html">
 <meta property="og:site_name" content="Security Notes">
 <meta property="og:description" content="Checking for Bad Characters12345678badchars = (&amp;quot;\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f&amp;quot;&amp;quot;\x20\x2">
-<meta property="og:updated_time" content="2017-02-28T15:59:39.368Z">
+<meta property="og:updated_time" content="2017-02-28T16:00:47.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="buffer-overflow-basics">
+<meta name="twitter:title" content="Buffer Overflow Basics">
 <meta name="twitter:description" content="Checking for Bad Characters12345678badchars = (&amp;quot;\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f&amp;quot;&amp;quot;\x20\x2">
     
     
@@ -35,7 +35,7 @@
         
     
     <!-- title -->
-    <title>buffer-overflow-basics</title>
+    <title>Buffer Overflow Basics</title>
     <!-- styles -->
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
@@ -83,15 +83,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&text=buffer-overflow-basics"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&is_video=false&description=buffer-overflow-basics"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=buffer-overflow-basics&body=Check out this article: http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&name=buffer-overflow-basics&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&text=Buffer Overflow Basics"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&is_video=false&description=Buffer Overflow Basics"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Buffer Overflow Basics&body=Check out this article: http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&name=Buffer Overflow Basics&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -108,7 +108,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        buffer-overflow-basics
+        Buffer Overflow Basics
     </h1>
 
 
@@ -165,15 +165,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&text=buffer-overflow-basics"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&is_video=false&description=buffer-overflow-basics"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=buffer-overflow-basics&body=Check out this article: http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=buffer-overflow-basics"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&name=buffer-overflow-basics&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&text=Buffer Overflow Basics"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&is_video=false&description=Buffer Overflow Basics"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Buffer Overflow Basics&body=Check out this article: http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&title=Buffer Overflow Basics"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ostrokonskiy.tk/2017/02/28/buffer-overflow-basics/&name=Buffer Overflow Basics&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
