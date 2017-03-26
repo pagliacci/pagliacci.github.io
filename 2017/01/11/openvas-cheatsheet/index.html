@@ -6,22 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Make OpenVAS listen on external IP1234567openvas-stopgsad --listen=0.0.0.0openvas-start
-Then OpenVAS web interface will be available on https://ip-address
-Creating OpenVAS user123openvasmd --user=admi">
+    <meta name="description" content="Installation of OpenVAS 9.0 on Ubuntu 16.04123456789sudo add-apt-repository ppa:mrazavi/openvassudo apt-get updatesudo apt-get install sqlite3sudo apt-get install openvas9sudo greenbone-nvt-syncsudo g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenVAS Cheatsheet">
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/01/11/openvas-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="Make OpenVAS listen on external IP1234567openvas-stopgsad --listen=0.0.0.0openvas-start
-Then OpenVAS web interface will be available on https://ip-address
-Creating OpenVAS user123openvasmd --user=admi">
-<meta property="og:updated_time" content="2017-01-11T12:40:01.469Z">
+<meta property="og:description" content="Installation of OpenVAS 9.0 on Ubuntu 16.04123456789sudo add-apt-repository ppa:mrazavi/openvassudo apt-get updatesudo apt-get install sqlite3sudo apt-get install openvas9sudo greenbone-nvt-syncsudo g">
+<meta property="og:image" content="http://i.imgur.com/hYgDJiD.png">
+<meta property="og:updated_time" content="2017-03-26T22:51:37.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenVAS Cheatsheet">
-<meta name="twitter:description" content="Make OpenVAS listen on external IP1234567openvas-stopgsad --listen=0.0.0.0openvas-start
-Then OpenVAS web interface will be available on https://ip-address
-Creating OpenVAS user123openvasmd --user=admi">
+<meta name="twitter:description" content="Installation of OpenVAS 9.0 on Ubuntu 16.04123456789sudo add-apt-repository ppa:mrazavi/openvassudo apt-get updatesudo apt-get install sqlite3sudo apt-get install openvas9sudo greenbone-nvt-syncsudo g">
+<meta name="twitter:image" content="http://i.imgur.com/hYgDJiD.png">
     
     
         
@@ -104,7 +100,7 @@ Creating OpenVAS user123openvasmd --user=admi">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Make-OpenVAS-listen-on-external-IP"><span class="toc-number">1.</span> <span class="toc-text">Make OpenVAS listen on external IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-OpenVAS-user"><span class="toc-number">2.</span> <span class="toc-text">Creating OpenVAS user</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation-of-OpenVAS-9-0-on-Ubuntu-16-04"><span class="toc-number">1.</span> <span class="toc-text">Installation of OpenVAS 9.0 on Ubuntu 16.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-UFW-to-restrict-access-to-OpenVAS-web-interface"><span class="toc-number">2.</span> <span class="toc-text">Using UFW to restrict access to OpenVAS web interface</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -138,9 +134,24 @@ Creating OpenVAS user123openvasmd --user=admi">
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Make-OpenVAS-listen-on-external-IP"><a href="#Make-OpenVAS-listen-on-external-IP" class="headerlink" title="Make OpenVAS listen on external IP"></a>Make OpenVAS listen on external IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">openvas-stop</div><div class="line"></div><div class="line">gsad --listen=0.0.0.0</div><div class="line"></div><div class="line">openvas-start</div><div class="line"></div></pre></td></tr></table></figure>
-<p>Then OpenVAS web interface will be available on <a href="https://ip-address" target="_blank" rel="external">https://ip-address</a></p>
-<h2 id="Creating-OpenVAS-user"><a href="#Creating-OpenVAS-user" class="headerlink" title="Creating OpenVAS user"></a>Creating OpenVAS user</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">openvasmd --user=admin --new-password=new_password</div><div class="line"></div></pre></td></tr></table></figure>
+    <h2 id="Installation-of-OpenVAS-9-0-on-Ubuntu-16-04"><a href="#Installation-of-OpenVAS-9-0-on-Ubuntu-16-04" class="headerlink" title="Installation of OpenVAS 9.0 on Ubuntu 16.04"></a>Installation of OpenVAS 9.0 on Ubuntu 16.04</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:mrazavi/openvas</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install sqlite3</div><div class="line">sudo apt-get install openvas9</div><div class="line">sudo greenbone-nvt-sync</div><div class="line">sudo greenbone-scapdata-sync</div><div class="line">sudo greenbone-certdata-sync</div><div class="line">sudo service openvas-scanner restart</div><div class="line">sudo service openvas-manager restart</div></pre></td></tr></table></figure>
+<p>To make OpenVAS listen on external IP we should set “LISTEN_ADDRESS” to external IP address of your OpenVAS server in <code>/etc/default/openvas-gsa/</code> config file.</p>
+<p>After that Let’s restart OpenVAS and create user:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service openvas-gsa restart</div><div class="line">openvasmd --user=admin --new-password=supersecurepassword</div></pre></td></tr></table></figure>
+<p>Now OpenVAS 9 is available on <a href="https://ip-address" target="_blank" rel="external">https://ip-address</a>:</p>
+<p><img src="http://i.imgur.com/hYgDJiD.png" alt=""></p>
+<h2 id="Using-UFW-to-restrict-access-to-OpenVAS-web-interface"><a href="#Using-UFW-to-restrict-access-to-OpenVAS-web-interface" class="headerlink" title="Using UFW to restrict access to OpenVAS web interface"></a>Using UFW to restrict access to OpenVAS web interface</h2><p>To install UFW:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ufw</div></pre></td></tr></table></figure>
+<p>To allow SSH connections from any IP:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw allow 22</div></pre></td></tr></table></figure>
+<p>To allow access to OpenVAS web interface only from your IP:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw allow from 10.10.10.10 to any port 443</div></pre></td></tr></table></figure>
+<p>To delete rule:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw status numbered</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Status: active</div><div class="line"></div><div class="line">     To                         Action      From</div><div class="line">     --                         ------      ----</div><div class="line">[ 1] 22                         ALLOW IN    Anywhere                  </div><div class="line">[ 2] 443                        ALLOW IN    10.10.10.10</div><div class="line">[ 3] 22 (v6)                    ALLOW IN    Anywhere (v6) </div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw delete 2</div></pre></td></tr></table></figure>
+<p>To enable UFW:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ufw enable</div></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -169,7 +180,7 @@ Creating OpenVAS user123openvasmd --user=admi">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Make-OpenVAS-listen-on-external-IP"><span class="toc-number">1.</span> <span class="toc-text">Make OpenVAS listen on external IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-OpenVAS-user"><span class="toc-number">2.</span> <span class="toc-text">Creating OpenVAS user</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation-of-OpenVAS-9-0-on-Ubuntu-16-04"><span class="toc-number">1.</span> <span class="toc-text">Installation of OpenVAS 9.0 on Ubuntu 16.04</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-UFW-to-restrict-access-to-OpenVAS-web-interface"><span class="toc-number">2.</span> <span class="toc-text">Using UFW to restrict access to OpenVAS web interface</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
