@@ -18,7 +18,7 @@ Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
 To verify database connectivity:
 1msf &amp;gt; db_status
 Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
-<meta property="og:updated_time" content="2017-03-22T15:59:28.569Z">
+<meta property="og:updated_time" content="2017-04-11T12:12:43.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metasploit Cheatsheet">
 <meta name="twitter:description" content="Metasploit Initialisation123service postgresql startmsfdb initmsfconsole
@@ -151,9 +151,11 @@ Auxiliary modulesTo discover netbios hostnames:use auxiliary/scanner/netbi">
 <p><code>use auxiliary/scanner/smb/smb_version</code> - determines the version of the SMB service that is running</p>
 <h3 id="SSH-users-enumeration"><a href="#SSH-users-enumeration" class="headerlink" title="SSH users enumeration:"></a>SSH users enumeration:</h3><p><code>use auxiliary/scanner/ssh/ssh_enumusers</code> - checks if user exists or can connect via SSH</p>
 <h2 id="Post-modules"><a href="#Post-modules" class="headerlink" title="Post modules"></a>Post modules</h2><h3 id="Upgrade-to-meterpreter"><a href="#Upgrade-to-meterpreter" class="headerlink" title="Upgrade to meterpreter"></a>Upgrade to meterpreter</h3><p><code>use post/multi/manage/shell_to_meterpreter</code></p>
-<h3 id="Port-Forward"><a href="#Port-Forward" class="headerlink" title="Port Forward"></a>Port Forward</h3><p>For example we have meterpreter session on Windows machine and there is something listening on localhost on port 9090, which we can’t see from outside (because of firewall or smth). We need to bypass firewall and to connect to port 9090 on Windows machine. So:</p>
+<h3 id="Port-Forward"><a href="#Port-Forward" class="headerlink" title="Port Forward"></a>Port Forward</h3><p>For example we have meterpreter session on Windows machine and there is something listening on port 9090, which we can’t see from outside (because of firewall or smth). We need to bypass firewall and to connect to port 9090 on Windows machine. So:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">portfwd add -l &lt;local port on our KALI machine&gt; -p &lt;port on victim (in our case Windows) machine&gt; -r &lt;victim IP address&gt;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">portfwd add -l 9090 -p 1234 -r 10.10.10.1</div></pre></td></tr></table></figure>
+<p>If service is listening on locahost only:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">portfwd add -l 9090 -p 1234 -r 127.0.0.1</div></pre></td></tr></table></figure>
 <p><code>-l</code> - local port on our Kali machine<br><code>-p</code> - victim port we want to access<br><code>-r</code> - victim IP address<br><code>add</code> - this option will add this route</p>
 <h5 id="to-delete-portfwd-rules"><a href="#to-delete-portfwd-rules" class="headerlink" title="to delete portfwd rules:"></a>to delete portfwd rules:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">portfwd flush</div></pre></td></tr></table></figure>
 <h2 id="Add-custom-module"><a href="#Add-custom-module" class="headerlink" title="Add custom module"></a>Add custom module</h2><p>Create folder for exploit:</p>
