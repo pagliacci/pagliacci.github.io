@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs username and cracked password. I don’tknow why :(
-Ha">
+    <meta name="description" content="Example hashesHashcat examples can be found here
+How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs use">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hashcat Cheatsheet">
 <meta property="og:url" content="http://ostrokonskiy.tk/2017/11/22/hashcat-cheatsheet/index.html">
 <meta property="og:site_name" content="Security Notes">
-<meta property="og:description" content="How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs username and cracked password. I don’tknow why :(
-Ha">
-<meta property="og:updated_time" content="2017-11-22T15:06:05.517Z">
+<meta property="og:description" content="Example hashesHashcat examples can be found here
+How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs use">
+<meta property="og:updated_time" content="2017-11-22T15:28:01.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hashcat Cheatsheet">
-<meta name="twitter:description" content="How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs username and cracked password. I don’tknow why :(
-Ha">
+<meta name="twitter:description" content="Example hashesHashcat examples can be found here
+How to make username:password output in Hashcat?It cannot be done by default. Hashcat has 15! output formats but thereis no any format that outputs use">
     
     
         
@@ -99,7 +99,7 @@ Ha">
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-make-username-password-output-in-Hashcat"><span class="toc-number">1.</span> <span class="toc-text">How to make username:password output in Hashcat?</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-hashes"><span class="toc-number">1.</span> <span class="toc-text">Example hashes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-make-username-password-output-in-Hashcat"><span class="toc-number">2.</span> <span class="toc-text">How to make username:password output in Hashcat?</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -133,7 +133,8 @@ Ha">
   
 
   <div class="content" itemprop="articleBody">
-    <h3 id="How-to-make-username-password-output-in-Hashcat"><a href="#How-to-make-username-password-output-in-Hashcat" class="headerlink" title="How to make username:password output in Hashcat?"></a>How to make username:password output in Hashcat?</h3><p>It cannot be done by default. Hashcat has 15! output formats but there<br>is no any format that outputs username and cracked password. I don’t<br>know why :(</p>
+    <h2 id="Example-hashes"><a href="#Example-hashes" class="headerlink" title="Example hashes"></a>Example hashes</h2><p><code>Hashcat</code> examples can be found <a href="https://hashcat.net/wiki/doku.php?id=example_hashes" target="_blank" rel="external">here</a></p>
+<h2 id="How-to-make-username-password-output-in-Hashcat"><a href="#How-to-make-username-password-output-in-Hashcat" class="headerlink" title="How to make username:password output in Hashcat?"></a>How to make username:password output in Hashcat?</h2><p>It cannot be done by default. Hashcat has 15! output formats but there<br>is no any format that outputs username and cracked password. I don’t<br>know why :(</p>
 <p>Hashcat wiki fragment:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> # | Format</div><div class="line">===+========</div><div class="line"> 1 | hash[:salt]</div><div class="line"> 2 | plain</div><div class="line"> 3 | hash[:salt]:plain</div><div class="line"> 4 | hex_plain</div><div class="line"> 5 | hash[:salt]:hex_plain</div><div class="line"> 6 | plain:hex_plain</div><div class="line"> 7 | hash[:salt]:plain:hex_plain</div><div class="line"> 8 | crackpos</div><div class="line"> 9 | hash[:salt]:crack_pos</div><div class="line">10 | plain:crack_pos</div><div class="line">11 | hash[:salt]:plain:crack_pos</div><div class="line">12 | hex_plain:crack_pos</div><div class="line">13 | hash[:salt]:hex_plain:crack_pos</div><div class="line">14 | plain:hex_plain:crack_pos</div><div class="line">15 | hash[:salt]:plain:hex_plain:crack_pos</div><div class="line"></div></pre></td></tr></table></figure>
 <p>But there is another option which allows to crack hashes and THEN to output them in a specific format (username:password)</p>
@@ -175,7 +176,7 @@ Ha">
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-make-username-password-output-in-Hashcat"><span class="toc-number">1.</span> <span class="toc-text">How to make username:password output in Hashcat?</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-hashes"><span class="toc-number">1.</span> <span class="toc-text">Example hashes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-make-username-password-output-in-Hashcat"><span class="toc-number">2.</span> <span class="toc-text">How to make username:password output in Hashcat?</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
